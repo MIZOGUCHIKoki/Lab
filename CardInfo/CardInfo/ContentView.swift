@@ -8,76 +8,57 @@
 import SwiftUI
 import CoreData
 
-
-struct AddInfoView: View {
-    @State var name: String = ""
-    @State var number: Int?
-    @State var gt: Int?
-    @State var ccv: Int?
-    
-    
-    var body: some View {
-        NavigationView{
-            VStack{
-                List{
-                    TextField("Card name", text: $name,onCommit: {})
-                    TextField("Card number", value: $number, formatter: NumberFormatter(),onCommit: {})
-                        .keyboardType(.numberPad)
-                    TextField("Good Thru (mmyy)", value: $gt, formatter: NumberFormatter(),onCommit: {})
-                        .keyboardType(.numberPad)
-                    TextField("CCV", value: $ccv, formatter: NumberFormatter(),onCommit: {})
-                        .keyboardType(.numberPad)
-                }// List
-            }// VStack
-            .navigationTitle("Add Card")
-            .navigationBarTitleDisplayMode(.inline)
-        }
-    }
-}
-
 struct ContentView: View {// MainView
     
     @Environment(\.managedObjectContext) var viewContext
+    
+    
+    // showingModalはContentViewで管理する値型のデータ
+    @State private var showingModal = false
     
     @FetchRequest(sortDescriptors: [])
     var cardInfo: FetchedResults<CardInfo>
     
     @State var searchKey: String = ""
+    @State var isShowAddInfo = false
+    @State var isShowInfoView = false
     
     var body: some View {
         NavigationView{
             VStack{
                 List {
-                    TextField("Serach",text: $searchKey,onCommit: search)
                     ForEach(cardInfo) { item in
-                        if (item.name?.isEmpty) == false {
-                            Text(item.name!)
-                        }// if
+                        Button(action:{
+                            
+                        }){
+                            if (item.name?.isEmpty) == false {
+                                Text(item.name!)
+                            }// if
+                        }
+                        .sheet(isPresented: self.$isShowInfoView, content: {
+//                            ShowInfoView(name: item.name!, number: item.number!, gt: item.gt!, ccv: item.ccv!)
+                        })
                     }// ForEach
                 }// List
                 
                 .navigationTitle("CardInfo")
                 .navigationBarTitleDisplayMode(.inline)
-                //            .navigationBarItems(trailing: Button(action:{
-                //
-                //            }){
-                //                Image(systemName: "square.and.pencil")
-                //            })
-                
+                .navigationBarItems(trailing: Button(action: {
+                    self.isShowAddInfo.toggle()
+                }) {
+                    Image(systemName: "square.and.pencil")
+                }
+                    .sheet(isPresented: $isShowAddInfo,content: {
+                        AddInfoView()
+                    }))
             }// VStack
         }// NavigationView
     }// body
-    
-    func search(){
-    }
-    
 }// View
-
 
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-        AddInfoView()
     }
 }
