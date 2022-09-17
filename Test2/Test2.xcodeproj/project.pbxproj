@@ -3,38 +3,26 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E73D36F528D5FA34004C931C /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73D36F428D5FA34004C931C /* DataController.swift */; };
-		E77D95C128CF84B00043CF18 /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77D95C028CF84B00043CF18 /* Modal.swift */; };
-		E77D95C328CF8A470043CF18 /* AddInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77D95C228CF8A470043CF18 /* AddInfoView.swift */; };
-		E77D95C528CF8A800043CF18 /* ShowInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77D95C428CF8A800043CF18 /* ShowInfoView.swift */; };
-		E7F07C8E28CF0FAE00EC174C /* CardInfoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F07C8D28CF0FAE00EC174C /* CardInfoApp.swift */; };
-		E7F07C9028CF0FAE00EC174C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F07C8F28CF0FAE00EC174C /* ContentView.swift */; };
-		E7F07C9228CF0FAF00EC174C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7F07C9128CF0FAF00EC174C /* Assets.xcassets */; };
-		E7F07C9528CF0FAF00EC174C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7F07C9428CF0FAF00EC174C /* Preview Assets.xcassets */; };
-		E7F07C9D28CF0FC300EC174C /* CardInfoDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E7F07C9B28CF0FC300EC174C /* CardInfoDB.xcdatamodeld */; };
-		E7F07C9F28CF132D00EC174C /* Persistent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F07C9E28CF132D00EC174C /* Persistent.swift */; };
+		E73D36E228D5F6B0004C931C /* Test2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73D36E128D5F6B0004C931C /* Test2App.swift */; };
+		E73D36E428D5F6B0004C931C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73D36E328D5F6B0004C931C /* ContentView.swift */; };
+		E73D36E628D5F6B1004C931C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E73D36E528D5F6B1004C931C /* Assets.xcassets */; };
+		E73D36E928D5F6B1004C931C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E73D36E828D5F6B1004C931C /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E73D36F428D5FA34004C931C /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
-		E77D95C028CF84B00043CF18 /* Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
-		E77D95C228CF8A470043CF18 /* AddInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInfoView.swift; sourceTree = "<group>"; };
-		E77D95C428CF8A800043CF18 /* ShowInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowInfoView.swift; sourceTree = "<group>"; };
-		E7F07C8A28CF0FAE00EC174C /* CardInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E7F07C8D28CF0FAE00EC174C /* CardInfoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInfoApp.swift; sourceTree = "<group>"; };
-		E7F07C8F28CF0FAE00EC174C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		E7F07C9128CF0FAF00EC174C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E7F07C9428CF0FAF00EC174C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		E7F07C9C28CF0FC300EC174C /* CardInfo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CardInfo.xcdatamodel; sourceTree = "<group>"; };
-		E7F07C9E28CF132D00EC174C /* Persistent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistent.swift; sourceTree = "<group>"; };
+		E73D36DE28D5F6B0004C931C /* Test2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E73D36E128D5F6B0004C931C /* Test2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test2App.swift; sourceTree = "<group>"; };
+		E73D36E328D5F6B0004C931C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E73D36E528D5F6B1004C931C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E73D36E828D5F6B1004C931C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		E7F07C8728CF0FAE00EC174C /* Frameworks */ = {
+		E73D36DB28D5F6B0004C931C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -44,43 +32,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E7F07C8128CF0FAE00EC174C = {
+		E73D36D528D5F6B0004C931C = {
 			isa = PBXGroup;
 			children = (
-				E7F07C8C28CF0FAE00EC174C /* CardInfo */,
-				E7F07C8B28CF0FAE00EC174C /* Products */,
+				E73D36E028D5F6B0004C931C /* Test2 */,
+				E73D36DF28D5F6B0004C931C /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		E7F07C8B28CF0FAE00EC174C /* Products */ = {
+		E73D36DF28D5F6B0004C931C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E7F07C8A28CF0FAE00EC174C /* CardInfo.app */,
+				E73D36DE28D5F6B0004C931C /* Test2.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E7F07C8C28CF0FAE00EC174C /* CardInfo */ = {
+		E73D36E028D5F6B0004C931C /* Test2 */ = {
 			isa = PBXGroup;
 			children = (
-				E7F07C8D28CF0FAE00EC174C /* CardInfoApp.swift */,
-				E7F07C9E28CF132D00EC174C /* Persistent.swift */,
-				E7F07C8F28CF0FAE00EC174C /* ContentView.swift */,
-				E77D95C428CF8A800043CF18 /* ShowInfoView.swift */,
-				E77D95C228CF8A470043CF18 /* AddInfoView.swift */,
-				E73D36F428D5FA34004C931C /* DataController.swift */,
-				E77D95C028CF84B00043CF18 /* Modal.swift */,
-				E7F07C9B28CF0FC300EC174C /* CardInfoDB.xcdatamodeld */,
-				E7F07C9128CF0FAF00EC174C /* Assets.xcassets */,
-				E7F07C9328CF0FAF00EC174C /* Preview Content */,
+				E73D36E128D5F6B0004C931C /* Test2App.swift */,
+				E73D36E328D5F6B0004C931C /* ContentView.swift */,
+				E73D36E528D5F6B1004C931C /* Assets.xcassets */,
+				E73D36E728D5F6B1004C931C /* Preview Content */,
 			);
-			path = CardInfo;
+			path = Test2;
 			sourceTree = "<group>";
 		};
-		E7F07C9328CF0FAF00EC174C /* Preview Content */ = {
+		E73D36E728D5F6B1004C931C /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				E7F07C9428CF0FAF00EC174C /* Preview Assets.xcassets */,
+				E73D36E828D5F6B1004C931C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -88,94 +70,88 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E7F07C8928CF0FAE00EC174C /* CardInfo */ = {
+		E73D36DD28D5F6B0004C931C /* Test2 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E7F07C9828CF0FAF00EC174C /* Build configuration list for PBXNativeTarget "CardInfo" */;
+			buildConfigurationList = E73D36EC28D5F6B1004C931C /* Build configuration list for PBXNativeTarget "Test2" */;
 			buildPhases = (
-				E7F07C8628CF0FAE00EC174C /* Sources */,
-				E7F07C8728CF0FAE00EC174C /* Frameworks */,
-				E7F07C8828CF0FAE00EC174C /* Resources */,
+				E73D36DA28D5F6B0004C931C /* Sources */,
+				E73D36DB28D5F6B0004C931C /* Frameworks */,
+				E73D36DC28D5F6B0004C931C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = CardInfo;
-			productName = CardInfo;
-			productReference = E7F07C8A28CF0FAE00EC174C /* CardInfo.app */;
+			name = Test2;
+			productName = Test2;
+			productReference = E73D36DE28D5F6B0004C931C /* Test2.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		E7F07C8228CF0FAE00EC174C /* Project object */ = {
+		E73D36D628D5F6B0004C931C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1340;
-				LastUpgradeCheck = 1340;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
 				TargetAttributes = {
-					E7F07C8928CF0FAE00EC174C = {
-						CreatedOnToolsVersion = 13.4.1;
+					E73D36DD28D5F6B0004C931C = {
+						CreatedOnToolsVersion = 14.0;
 					};
 				};
 			};
-			buildConfigurationList = E7F07C8528CF0FAE00EC174C /* Build configuration list for PBXProject "CardInfo" */;
-			compatibilityVersion = "Xcode 13.0";
+			buildConfigurationList = E73D36D928D5F6B0004C931C /* Build configuration list for PBXProject "Test2" */;
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = E7F07C8128CF0FAE00EC174C;
-			productRefGroup = E7F07C8B28CF0FAE00EC174C /* Products */;
+			mainGroup = E73D36D528D5F6B0004C931C;
+			productRefGroup = E73D36DF28D5F6B0004C931C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E7F07C8928CF0FAE00EC174C /* CardInfo */,
+				E73D36DD28D5F6B0004C931C /* Test2 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		E7F07C8828CF0FAE00EC174C /* Resources */ = {
+		E73D36DC28D5F6B0004C931C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7F07C9528CF0FAF00EC174C /* Preview Assets.xcassets in Resources */,
-				E7F07C9228CF0FAF00EC174C /* Assets.xcassets in Resources */,
+				E73D36E928D5F6B1004C931C /* Preview Assets.xcassets in Resources */,
+				E73D36E628D5F6B1004C931C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		E7F07C8628CF0FAE00EC174C /* Sources */ = {
+		E73D36DA28D5F6B0004C931C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E77D95C328CF8A470043CF18 /* AddInfoView.swift in Sources */,
-				E7F07C9F28CF132D00EC174C /* Persistent.swift in Sources */,
-				E7F07C9028CF0FAE00EC174C /* ContentView.swift in Sources */,
-				E77D95C128CF84B00043CF18 /* Modal.swift in Sources */,
-				E7F07C9D28CF0FC300EC174C /* CardInfoDB.xcdatamodeld in Sources */,
-				E73D36F528D5FA34004C931C /* DataController.swift in Sources */,
-				E77D95C528CF8A800043CF18 /* ShowInfoView.swift in Sources */,
-				E7F07C8E28CF0FAE00EC174C /* CardInfoApp.swift in Sources */,
+				E73D36E428D5F6B0004C931C /* ContentView.swift in Sources */,
+				E73D36E228D5F6B0004C931C /* Test2App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		E7F07C9628CF0FAF00EC174C /* Debug */ = {
+		E73D36EA28D5F6B1004C931C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -219,7 +195,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -229,13 +205,13 @@
 			};
 			name = Debug;
 		};
-		E7F07C9728CF0FAF00EC174C /* Release */ = {
+		E73D36EB28D5F6B1004C931C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -273,7 +249,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -283,14 +259,14 @@
 			};
 			name = Release;
 		};
-		E7F07C9928CF0FAF00EC174C /* Debug */ = {
+		E73D36ED28D5F6B1004C931C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"CardInfo/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Test2/Preview Content\"";
 				DEVELOPMENT_TEAM = 5LAS9U3X25;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -304,7 +280,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hatenablog.mizomizo0515.CardInfo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hatenablog.mizomizo0515.Test2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -312,14 +288,14 @@
 			};
 			name = Debug;
 		};
-		E7F07C9A28CF0FAF00EC174C /* Release */ = {
+		E73D36EE28D5F6B1004C931C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"CardInfo/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Test2/Preview Content\"";
 				DEVELOPMENT_TEAM = 5LAS9U3X25;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -333,7 +309,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hatenablog.mizomizo0515.CardInfo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hatenablog.mizomizo0515.Test2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -344,38 +320,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E7F07C8528CF0FAE00EC174C /* Build configuration list for PBXProject "CardInfo" */ = {
+		E73D36D928D5F6B0004C931C /* Build configuration list for PBXProject "Test2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E7F07C9628CF0FAF00EC174C /* Debug */,
-				E7F07C9728CF0FAF00EC174C /* Release */,
+				E73D36EA28D5F6B1004C931C /* Debug */,
+				E73D36EB28D5F6B1004C931C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E7F07C9828CF0FAF00EC174C /* Build configuration list for PBXNativeTarget "CardInfo" */ = {
+		E73D36EC28D5F6B1004C931C /* Build configuration list for PBXNativeTarget "Test2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E7F07C9928CF0FAF00EC174C /* Debug */,
-				E7F07C9A28CF0FAF00EC174C /* Release */,
+				E73D36ED28D5F6B1004C931C /* Debug */,
+				E73D36EE28D5F6B1004C931C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		E7F07C9B28CF0FC300EC174C /* CardInfoDB.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				E7F07C9C28CF0FC300EC174C /* CardInfo.xcdatamodel */,
-			);
-			currentVersion = E7F07C9C28CF0FC300EC174C /* CardInfo.xcdatamodel */;
-			path = CardInfoDB.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
-	rootObject = E7F07C8228CF0FAE00EC174C /* Project object */;
+	rootObject = E73D36D628D5F6B0004C931C /* Project object */;
 }

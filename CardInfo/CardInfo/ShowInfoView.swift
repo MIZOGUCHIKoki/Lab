@@ -10,13 +10,17 @@ import SwiftUI
 
 struct ShowInfoView: View {
     @Environment(\.presentationMode) var presentationMode
+    @Environment(\.managedObjectContext) var viewContext
     
+    var cardInfo: FetchedResults<CardInfo>!
+    var item: CardInfo!
     
-    let name: String
-    let number: String
-    let gt: String
-    let ccv: String
+    var name: String!
+    var number: String!
+    var gt: String!
+    var ccv: String!
     
+    @State var showAddView: Bool = false
     var body: some View {
         NavigationView {
             VStack {
@@ -48,14 +52,32 @@ struct ShowInfoView: View {
                 }){
                     Text("Done")
                 })
-            }
+                .navigationBarItems(leading: Button(action: {// Edit
+                    showAddView.toggle()
+                    self.deleteData(item: item)
+                }) {
+                    Image(systemName: "pencil.slash")
+                }
+                    .sheet(isPresented: $showAddView, content: {
+                        AddInfoView(name: self.name, number: self.number, gt: self.gt, ccv: self.ccv)
+                            .environment(\.viewMode, false)// EditMode
+                    }))
+                
+            }// VStack
+        }// Navigation
+    }// View
+    func deleteData(item: CardInfo) {
+        viewContext.delete(item)
+        do {
+            try viewContext.save()
+        } catch {
+            fatalError("Cannnot save")
         }
-    }
-}
+    }// func
+}// struct
 
 struct showInfoView_Previews: PreviewProvider {
     static var previews: some View {
-//        ShowInfoView()
         ShowInfoView(name: "AMEX", number: "1234 1234 1234 1234", gt: "06/2023", ccv: "111")
     }
 }

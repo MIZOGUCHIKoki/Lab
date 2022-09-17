@@ -11,7 +11,6 @@ import CoreData
 struct ContentView: View {// MainView
     // showingModalはContentViewで管理する値型のデータ
     @State private var showingModal = false
-    let AIV: AddInfoView = AddInfoView()
     
     @FetchRequest(
         entity: CardInfo.entity(),
@@ -19,7 +18,9 @@ struct ContentView: View {// MainView
     )
     var cardInfo: FetchedResults<CardInfo>
     
-    @State var viewContext: managedObjectContext = .inactive
+//    @Environment(\.managedObjectContext) var viewContext
+    @Environment(\.managedObjectContext) var viewContext
+    
     
     @State var searchKey: String = ""
     @State var isShowAddInfo = false
@@ -38,8 +39,8 @@ struct ContentView: View {// MainView
                             }// if
                         }
                         .sheet(isPresented: self.$isShowInfoView, content: {
-                            ShowInfoView(name: item.name!, number: item.number!, gt: item.gt!, ccv: item.ccv!)
-                        })
+                            ShowInfoView(cardInfo: cardInfo,item: item, name: item.name!, number: item.number!, gt: item.gt!, ccv: item.ccv!)
+                        }).environment(\.managedObjectContext, viewContext)
                     }.onDelete(perform:removeData)// ForEach
                 }
                 // List
@@ -52,28 +53,25 @@ struct ContentView: View {// MainView
                     Image(systemName: "square.and.pencil")
                 }
                     .sheet(isPresented: $isShowAddInfo,content: {
-                        AIV
+                        AddInfoView(name: "", number: "", gt: "", ccv: "")
+                            .environment(\.managedObjectContext, viewContext)
+                            .environment(\.viewMode, true)
                     }))
-                .navigationBarItems(leading: Button(action: {// Edit
-                    
-                }){
-                    Image(systemName: "pencil.slash")
-                })
             }// VStack
         }// NavigationView
     }// body
-    func removeData(at offsets: IndexSet) {
-        for index in offsets {
-            let putInfo = ContentView().cardInfo[index]
-            self.viewContext.delete(putInfo)
-        }
-        do {
-            try self.viewContext.save()
-        } catch {
-          let nsError = error as NSError
-          fatalError("保存 error \(nsError), \(nsError.userInfo)")
-        }
-    }
+    private func removeData(at offsets: IndexSet) {
+      for index in offsets {
+        let putTask = cardInfo[index]
+        viewContext.delete(putTask)
+      }
+      do {
+        try self.viewContext.save()
+      } catch {
+        let nsError = error as NSError
+        fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+      }
+    }// removeData
 }// View
 
 
