@@ -11,6 +11,8 @@
 		E771F07928CEFCC900EA89E4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E771F07828CEFCC900EA89E4 /* ContentView.swift */; };
 		E771F07B28CEFCCA00EA89E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E771F07A28CEFCCA00EA89E4 /* Assets.xcassets */; };
 		E771F07E28CEFCCA00EA89E4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E771F07D28CEFCCA00EA89E4 /* Preview Assets.xcassets */; };
+		E79EF6AD28D43A0600CFCD6C /* RegistSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EF6AC28D43A0600CFCD6C /* RegistSampleData.swift */; };
+		E79EF6AF28D43CB200CFCD6C /* TestView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EF6AE28D43CB200CFCD6C /* TestView1.swift */; };
 		E7F07C7E28CEFFC000EC174C /* MyCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E7F07C7C28CEFFC000EC174C /* MyCoreData.xcdatamodeld */; };
 		E7F07C8028CF039100EC174C /* Persistent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F07C7F28CF039100EC174C /* Persistent.swift */; };
 /* End PBXBuildFile section */
@@ -21,6 +23,8 @@
 		E771F07828CEFCC900EA89E4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E771F07A28CEFCCA00EA89E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E771F07D28CEFCCA00EA89E4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E79EF6AC28D43A0600CFCD6C /* RegistSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistSampleData.swift; sourceTree = "<group>"; };
+		E79EF6AE28D43CB200CFCD6C /* TestView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView1.swift; sourceTree = "<group>"; };
 		E7F07C7D28CEFFC000EC174C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		E7F07C7F28CF039100EC174C /* Persistent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,6 +62,8 @@
 				E771F07628CEFCC900EA89E4 /* MyCoreData.swift */,
 				E771F07828CEFCC900EA89E4 /* ContentView.swift */,
 				E7F07C7C28CEFFC000EC174C /* MyCoreData.xcdatamodeld */,
+				E79EF6AC28D43A0600CFCD6C /* RegistSampleData.swift */,
+				E79EF6AE28D43CB200CFCD6C /* TestView1.swift */,
 				E7F07C7F28CF039100EC174C /* Persistent.swift */,
 				E771F07A28CEFCCA00EA89E4 /* Assets.xcassets */,
 				E771F07C28CEFCCA00EA89E4 /* Preview Content */,
@@ -143,9 +149,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E79EF6AF28D43CB200CFCD6C /* TestView1.swift in Sources */,
 				E7F07C8028CF039100EC174C /* Persistent.swift in Sources */,
 				E771F07928CEFCC900EA89E4 /* ContentView.swift in Sources */,
 				E771F07728CEFCC900EA89E4 /* MyCoreData.swift in Sources */,
+				E79EF6AD28D43A0600CFCD6C /* RegistSampleData.swift in Sources */,
 				E7F07C7E28CEFFC000EC174C /* MyCoreData.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

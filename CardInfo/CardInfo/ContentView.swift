@@ -9,15 +9,17 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {// MainView
-    
-    @Environment(\.managedObjectContext) var viewContext
-    
-    
     // showingModalはContentViewで管理する値型のデータ
     @State private var showingModal = false
+    let AIV: AddInfoView = AddInfoView()
     
-    @FetchRequest(sortDescriptors: [])
+    @FetchRequest(
+        entity: CardInfo.entity(),
+        sortDescriptors: [NSSortDescriptor(keyPath: \CardInfo.name,ascending: true)]
+    )
     var cardInfo: FetchedResults<CardInfo>
+    
+    @State var viewContext: managedObjectContext = .inactive
     
     @State var searchKey: String = ""
     @State var isShowAddInfo = false
@@ -27,33 +29,51 @@ struct ContentView: View {// MainView
         NavigationView{
             VStack{
                 List {
-                    ForEach(cardInfo) { item in
+                    ForEach(self.cardInfo) { item in
                         Button(action:{
-                            
+                            isShowInfoView = true
                         }){
                             if (item.name?.isEmpty) == false {
                                 Text(item.name!)
                             }// if
                         }
                         .sheet(isPresented: self.$isShowInfoView, content: {
-//                            ShowInfoView(name: item.name!, number: item.number!, gt: item.gt!, ccv: item.ccv!)
+                            ShowInfoView(name: item.name!, number: item.number!, gt: item.gt!, ccv: item.ccv!)
                         })
-                    }// ForEach
-                }// List
+                    }.onDelete(perform:removeData)// ForEach
+                }
+                // List
                 
                 .navigationTitle("CardInfo")
                 .navigationBarTitleDisplayMode(.inline)
-                .navigationBarItems(trailing: Button(action: {
+                .navigationBarItems(trailing: Button(action: {// Edit
                     self.isShowAddInfo.toggle()
                 }) {
                     Image(systemName: "square.and.pencil")
                 }
                     .sheet(isPresented: $isShowAddInfo,content: {
-                        AddInfoView()
+                        AIV
                     }))
+                .navigationBarItems(leading: Button(action: {// Edit
+                    
+                }){
+                    Image(systemName: "pencil.slash")
+                })
             }// VStack
         }// NavigationView
     }// body
+    func removeData(at offsets: IndexSet) {
+        for index in offsets {
+            let putInfo = ContentView().cardInfo[index]
+            self.viewContext.delete(putInfo)
+        }
+        do {
+            try self.viewContext.save()
+        } catch {
+          let nsError = error as NSError
+          fatalError("保存 error \(nsError), \(nsError.userInfo)")
+        }
+    }
 }// View
 
 

@@ -8,6 +8,7 @@
 import SwiftUI
 
 @main
+
 struct CardInfoApp: App {
     let persistenceController = PersistenceController()
     var body: some Scene {
