@@ -11,6 +11,8 @@
 		E73D36E428D5F6B0004C931C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73D36E328D5F6B0004C931C /* ContentView.swift */; };
 		E73D36E628D5F6B1004C931C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E73D36E528D5F6B1004C931C /* Assets.xcassets */; };
 		E73D36E928D5F6B1004C931C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E73D36E828D5F6B1004C931C /* Preview Assets.xcassets */; };
+		E73D36F128D5F6BB004C931C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E73D36EF28D5F6BB004C931C /* Model.xcdatamodeld */; };
+		E73D36F328D5F6EF004C931C /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73D36F228D5F6EF004C931C /* DataController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		E73D36E328D5F6B0004C931C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E73D36E528D5F6B1004C931C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E73D36E828D5F6B1004C931C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E73D36F028D5F6BB004C931C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		E73D36F228D5F6EF004C931C /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 			children = (
 				E73D36E128D5F6B0004C931C /* Test2App.swift */,
 				E73D36E328D5F6B0004C931C /* ContentView.swift */,
+				E73D36EF28D5F6BB004C931C /* Model.xcdatamodeld */,
+				E73D36F228D5F6EF004C931C /* DataController.swift */,
 				E73D36E528D5F6B1004C931C /* Assets.xcassets */,
 				E73D36E728D5F6B1004C931C /* Preview Content */,
 			);
@@ -138,7 +144,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E73D36E428D5F6B0004C931C /* ContentView.swift in Sources */,
+				E73D36F328D5F6EF004C931C /* DataController.swift in Sources */,
 				E73D36E228D5F6B0004C931C /* Test2App.swift in Sources */,
+				E73D36F128D5F6BB004C931C /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +347,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E73D36EF28D5F6BB004C931C /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E73D36F028D5F6BB004C931C /* Model.xcdatamodel */,
+			);
+			currentVersion = E73D36F028D5F6BB004C931C /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E73D36D628D5F6B0004C931C /* Project object */;
 }

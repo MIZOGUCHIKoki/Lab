@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E73D36F528D5FA34004C931C /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73D36F428D5FA34004C931C /* DataController.swift */; };
-		E77D95C128CF84B00043CF18 /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77D95C028CF84B00043CF18 /* Modal.swift */; };
 		E77D95C328CF8A470043CF18 /* AddInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77D95C228CF8A470043CF18 /* AddInfoView.swift */; };
 		E77D95C528CF8A800043CF18 /* ShowInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77D95C428CF8A800043CF18 /* ShowInfoView.swift */; };
 		E7F07C8E28CF0FAE00EC174C /* CardInfoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F07C8D28CF0FAE00EC174C /* CardInfoApp.swift */; };
@@ -20,8 +18,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E73D36F428D5FA34004C931C /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
-		E77D95C028CF84B00043CF18 /* Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
 		E77D95C228CF8A470043CF18 /* AddInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInfoView.swift; sourceTree = "<group>"; };
 		E77D95C428CF8A800043CF18 /* ShowInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowInfoView.swift; sourceTree = "<group>"; };
 		E7F07C8A28CF0FAE00EC174C /* CardInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,8 +64,6 @@
 				E7F07C8F28CF0FAE00EC174C /* ContentView.swift */,
 				E77D95C428CF8A800043CF18 /* ShowInfoView.swift */,
 				E77D95C228CF8A470043CF18 /* AddInfoView.swift */,
-				E73D36F428D5FA34004C931C /* DataController.swift */,
-				E77D95C028CF84B00043CF18 /* Modal.swift */,
 				E7F07C9B28CF0FC300EC174C /* CardInfoDB.xcdatamodeld */,
 				E7F07C9128CF0FAF00EC174C /* Assets.xcassets */,
 				E7F07C9328CF0FAF00EC174C /* Preview Content */,
@@ -158,9 +152,7 @@
 				E77D95C328CF8A470043CF18 /* AddInfoView.swift in Sources */,
 				E7F07C9F28CF132D00EC174C /* Persistent.swift in Sources */,
 				E7F07C9028CF0FAE00EC174C /* ContentView.swift in Sources */,
-				E77D95C128CF84B00043CF18 /* Modal.swift in Sources */,
 				E7F07C9D28CF0FC300EC174C /* CardInfoDB.xcdatamodeld in Sources */,
-				E73D36F528D5FA34004C931C /* DataController.swift in Sources */,
 				E77D95C528CF8A800043CF18 /* ShowInfoView.swift in Sources */,
 				E7F07C8E28CF0FAE00EC174C /* CardInfoApp.swift in Sources */,
 			);

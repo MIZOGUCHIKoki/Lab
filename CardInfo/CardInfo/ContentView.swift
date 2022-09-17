@@ -8,21 +8,15 @@
 import SwiftUI
 import CoreData
 
-struct ContentView: View {// MainView
-    // showingModalはContentViewで管理する値型のデータ
-    @State private var showingModal = false
-    
+struct ContentView: View {
     @FetchRequest(
         entity: CardInfo.entity(),
         sortDescriptors: [NSSortDescriptor(keyPath: \CardInfo.name,ascending: true)]
     )
     var cardInfo: FetchedResults<CardInfo>
     
-//    @Environment(\.managedObjectContext) var viewContext
     @Environment(\.managedObjectContext) var viewContext
     
-    
-    @State var searchKey: String = ""
     @State var isShowAddInfo = false
     @State var isShowInfoView = false
     
