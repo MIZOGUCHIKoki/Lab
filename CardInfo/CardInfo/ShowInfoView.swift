@@ -7,66 +7,95 @@
 
 import SwiftUI
 
-
 struct ShowInfoView: View {
-    @Environment(\.presentationMode) var presentationMode
-    @Environment(\.managedObjectContext) var viewContext
-    
-    var cardInfo: FetchedResults<CardInfo>!
-    var item: CardInfo!
+    @Environment(\.dismiss) private var dismiss
+    @Environment(\.managedObjectContext) private var viewContext
     
     var name: String!
     var number: String!
     var gt: String!
     var ccv: String!
     
-    @State var showAddView: Bool = false
+    @State private var showAddView: Bool = false
     var body: some View {
         NavigationView {
             VStack {
                 List{
                     Section{
-                        Text(self.name)
+                        HStack{
+                            Button(action: {
+                                UIPasteboard.general.string = self.name
+                            }){
+                                Text(self.name)
+                                    .foregroundColor(.black)
+                            }
+                            Spacer()
+                            Image(systemName: "doc.on.doc")
+                                .foregroundColor(.gray)
+                            
+                        }
                     } header: {
                         Text("Card Name")
                     }
                     Section{
-                        Text(self.number)
+                        HStack{
+                            Button(action: {
+                                UIPasteboard.general.string = self.number
+                            }){
+                                Text(self.number)
+                                    .foregroundColor(.black)
+                            }
+                            Spacer()
+                            Image(systemName: "doc.on.doc")
+                                .foregroundColor(.gray)
+                            
+                        }
                     } header: {
                         Text("Card Number")
                     }
                     Section {
-                        Text(self.gt)
+                        HStack{
+                            Button(action: {
+                                UIPasteboard.general.string = self.gt
+                            }){
+                                Text(self.gt)
+                                    .foregroundColor(.black)
+                            }
+                            Spacer()
+                            Image(systemName: "doc.on.doc")
+                                .foregroundColor(.gray)
+                            
+                        }
                     } header: {
                         Text("Good Thru")
                     }
                     Section{
-                        Text(self.ccv)
+                        HStack{
+                            Button(action: {
+                                UIPasteboard.general.string = self.ccv
+                            }){
+                                Text(self.ccv)
+                                    .foregroundColor(.black)
+                            }
+                            Spacer()
+                            Image(systemName: "doc.on.doc")
+                                .foregroundColor(.gray)
+                            
+                        }
                     } header: {
                         Text("CCV")
                     }
                 }
                 .listStyle(.insetGrouped)
                 .navigationBarItems(trailing: Button(action: {
-                    presentationMode.wrappedValue.dismiss()
+                    dismiss()
                 }){
                     Text("Done")
                 })
-                .navigationBarItems(leading: Button(action: {// Edit
-                    showAddView.toggle()
-                    self.deleteData(item: item)
-                }) {
-                    Image(systemName: "pencil.slash")
-                }
-                    .sheet(isPresented: $showAddView, content: {
-                        AddInfoView(name: self.name, number: self.number, gt: self.gt, ccv: self.ccv)
-                            .environment(\.viewMode, false)// EditMode
-                    }))
-                
             }// VStack
         }// Navigation
     }// View
-    func deleteData(item: CardInfo) {
+    private func deleteData(item: CardInfo) {
         viewContext.delete(item)
         do {
             try viewContext.save()
@@ -75,6 +104,7 @@ struct ShowInfoView: View {
         }
     }// func
 }// struct
+
 
 struct showInfoView_Previews: PreviewProvider {
     static var previews: some View {

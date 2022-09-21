@@ -10,21 +10,19 @@ import Combine
 
 
 struct AddInfoView: View {
-    @Environment(\.presentationMode) var presentationMode
-    @Environment(\.managedObjectContext) var viewContext
-    @Environment(\.viewMode) var viewMode
+    @Environment(\.dismiss) private var dismiss
+    @Environment(\.managedObjectContext) private var viewContext
     
     @State var name: String
     @State var number: String
     @State var gt: String
     @State var ccv: String
     
-    @FocusState var isActive:Bool
+    @FocusState private var isActive:Bool
     
     @State private var showingAlert = false
     
     var body: some View {
-        if viewMode {
             NavigationView{
                 VStack{
                     List{
@@ -49,8 +47,6 @@ struct AddInfoView: View {
                             .focused($isActive)
                     }// List
                 }// VStack
-                
-                
                 
                 .navigationTitle("Add Info")
                 .navigationBarTitleDisplayMode(.inline)
@@ -67,61 +63,14 @@ struct AddInfoView: View {
                     Image(systemName: "square.and.arrow.down")
                 }.alert("There are blanks", isPresented: $showingAlert, actions: {}))
                 .navigationBarItems(leading: Button(action: {
-                    presentationMode.wrappedValue.dismiss()
+                    dismiss()
                 }){
                     Image(systemName: "xmark")
                 })
             }// NavigationView
-        }
-        if !viewMode {// EditMode
-            NavigationView{
-                VStack{
-                    List{
-                        TextField("Card name", text: $name,onCommit: {})
-                            .focused($isActive)
-                            .toolbar{
-                                ToolbarItemGroup(placement: .keyboard){
-                                    Spacer()
-                                    Button("Done"){
-                                        self.isActive = false
-                                    }
-                                }
-                            }
-                        TextField("Card number", text: $number, onCommit: {self.isActive = false})
-                            .keyboardType(.numberPad)
-                            .focused($isActive)
-                        TextField("GOOD THRU (mm/yyyy)",text: $gt, onCommit: {self.isActive = false})
-                            .keyboardType(.numberPad)
-                            .focused($isActive)
-                        TextField("CCV", text: $ccv, onCommit: {self.isActive = false})
-                            .keyboardType(.numberPad)
-                            .focused($isActive)
-                    }// List
-                }// VStack
-                .navigationTitle("Edit Info")
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationBarItems(trailing: Button(action: {
-                    if  self.name.isEmpty == false &&
-                            self.number.isEmpty == false &&
-                            self.gt.isEmpty == false &&
-                            self.ccv.isEmpty == false {
-                        self.saveData()
-                    } else {
-                        self.showingAlert = true
-                    }
-                }){
-                    Image(systemName: "square.and.arrow.down")
-                }.alert("There are blanks", isPresented: $showingAlert, actions: {}))
-                .navigationBarItems(leading: Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }){
-                    Image(systemName: "xmark")
-                })
-            }// NavigationView
-        }// if
     }// body
     
-    func saveData() {
+    private func saveData() {
         let newCardInfo = CardInfo(context: viewContext)
         newCardInfo.name = self.name
         newCardInfo.number = self.number
@@ -137,7 +86,7 @@ struct AddInfoView: View {
         self.number = ""
         self.gt = ""
         self.ccv = ""
-        presentationMode.wrappedValue.dismiss()
+        dismiss()
     }// saveData
 }// View
 
