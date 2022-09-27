@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct EditView: View {
+    var cardInfo: FetchedResults<CardInfo>
+    var item: CardInfo
     
     @Environment(\.dismiss) private var dismiss
     @Environment(\.managedObjectContext) private var viewContext
@@ -47,13 +49,14 @@ struct EditView: View {
                 }// List
             }// VStack
             
-            .navigationTitle("Add Info")
+            .navigationTitle("Edit Info")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing: Button(action: {
                 if  self.name.isEmpty == false &&
                         self.number.isEmpty == false &&
                         self.gt.isEmpty == false &&
                         self.ccv.isEmpty == false {
+                    self.saveData()
                 } else {
                     self.showingAlert = true
                 }
@@ -67,10 +70,28 @@ struct EditView: View {
             })
         }// NavigationView
     }// body
+    private func saveData() {
+        let newCardInfo = CardInfo(context: viewContext)
+        newCardInfo.name = self.name
+        newCardInfo.number = self.number
+        newCardInfo.gt = self.gt
+        newCardInfo.ccv = self.ccv
+        do {
+            try viewContext.save()
+        } catch {
+            
+            fatalError("Cannot save")
+        }
+        self.name = ""
+        self.number = ""
+        self.gt = ""
+        self.ccv = ""
+        dismiss()
+    }// saveData
 }
 
-struct EditView_Previews: PreviewProvider {
-    static var previews: some View {
-        EditView(name: "", number: "", gt: "", ccv: "")
-    }
-}
+//struct EditView_Previews: PreviewProvider {
+//    static var previews: some View {
+////        EditView(name: "", number: "", gt: "", ccv: "",cardInfo: nil)
+//    }
+//}

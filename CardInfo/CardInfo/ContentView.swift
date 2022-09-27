@@ -13,7 +13,7 @@ struct ContentView: View {
         entity: CardInfo.entity(),
         sortDescriptors: [NSSortDescriptor(keyPath: \CardInfo.name,ascending: true)]
     )
-    private var cardInfo: FetchedResults<CardInfo>
+    var cardInfo: FetchedResults<CardInfo>
     
     @Environment(\.managedObjectContext) private var viewContext
     @State private var viewMode: Bool = true// Default
@@ -47,7 +47,7 @@ struct ContentView: View {
                                 .environment(\.managedObjectContext, viewContext)
                         })
                         .sheet(isPresented: self.$isShowEditView, content: {
-                            EditView(name: item.name!, number: item.number!, gt: item.gt!, ccv: item.ccv!)
+                            EditView(cardInfo: cardInfo,item: item, name: item.name!, number: item.number!, gt: item.gt!, ccv: item.ccv!)
                                 .environment(\.managedObjectContext, viewContext)
                         })
                     }.onDelete(perform:removeData)// ForEach
