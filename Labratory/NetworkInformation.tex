@@ -74,10 +74,10 @@
     {\Large
 
         \begin{tabular}{cp{4cm}p{10cm}}
-            \multirow{4}{*}{\textbf{\ttfamily IPv6}} & \verb|DNS 1|        & \verb|--| \\
-                                                     & \verb|DNS 2|        & \verb|--| \\
-                                                     & \verb|DNS domain 1| & \verb|--| \\
-                                                     & \verb|DNS domain 2| & \verb|--| \\
+            \multirow{4}{*}{\textbf{\ttfamily IPv6}} & \verb|DNS 1|        & \verb|2303:168:1:d104::101| \\
+                                                     & \verb|DNS 2|        & \verb|2303:168:1:d104::102| \\
+                                                     & \verb|DNS domain 1| & \verb|ns1.kochi-tech.ac.jp| \\
+                                                     & \verb|DNS domain 2| & \verb|ns2.kochi-tech.ac.jp| \\
         \end{tabular}
     }
 \end{tcolorbox}
@@ -102,6 +102,26 @@
                 \verb|https|                            &                                                                                              \\
             \end{tabular}
         \end{center}
+    }
+\end{tcolorbox}
+\begin{tcolorbox}[%
+        enhanced,
+        colframe = blue!20!gray,
+        colback = blue!10,
+        title = {\Large Reserved Address},
+        fonttitle = \bfseries,
+        coltitle = black,
+        breakable = true,
+        attach boxed title to top left = {xshift = 3mm, yshift = -3mm},
+        boxed title style = {colframe = blue!20!gray, colback = blue!10},
+        top = 4mm
+    ]
+    {\Large
+        \begin{tabular}{ll}
+            \verb|DHCP|         & \verb|172.21.32.2|   \\
+            \verb|Access Point| & \verb|172.21.32.3|   \\
+            \verb|NAS|          & \verb|172.21.32.200|
+        \end{tabular}
     }
 \end{tcolorbox}
 \end{document}
