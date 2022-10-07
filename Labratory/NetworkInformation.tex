@@ -1,6 +1,6 @@
 \RequirePackage{luatex85}
-\documentclass[paper=a4,10.5pt]{jlreq}
-\usepackage{amsmath,amsfonts,amssymb,mathtools,ascmac,bm,fancybox,calc,multicol,array}
+\documentclass[paper=a4,12pt]{jlreq}
+\usepackage{amsmath,amsfonts,amssymb,mathtools,ascmac,bm,fancybox,calc,multicol,array,multirow}
 \usepackage[top=20truemm,bottom=20truemm,left=15truemm,right=15truemm]{geometry}
 \usepackage{graphicx,color}
 \usepackage{tikz,listings,wrapfig,float,xcolor}
@@ -47,5 +47,61 @@
 
 \begin{document}
 \maketitle
+\begin{tcolorbox}[%
+        enhanced,
+        colframe = green!20!gray,
+        colback = green!10,
+        title = {\Large Network},
+        fonttitle = \bfseries,
+        coltitle = black,
+        breakable = true,
+        attach boxed title to top left = {xshift = 3mm, yshift = -3mm},
+        boxed title style = {colframe = green!20!gray, colback = green!10},
+        top = 4mm
+    ]
+    {\Large
+        \begin{tabular}{cp{4cm}p{10cm}}
+            \multirow{7}{*}{\textbf{\ttfamily IPv4}} & \verb|Gateway|     & \verb|172.21.32.1|   \\
+                                                     & \verb|Netmask|     & \verb|255.255.255.0| \\
+                                                     & \verb|DNS 1|       & \verb|172.30.0.2|    \\
+                                                     & \verb|DNS 2|       & \verb|172.30.0.3|    \\
+                                                     & \verb|DHCP|        & \verb|172.21.32.2|   \\
+                                                     & \verb|AP|          & \verb|172.21.32.5|   \\
+                                                     & \verb|AP Password| & \verb|xxxxxxxx|
+        \end{tabular}
+    }
+    \tcblower
+    {\Large
 
+        \begin{tabular}{cp{4cm}p{10cm}}
+            \multirow{4}{*}{\textbf{\ttfamily IPv6}} & \verb|DNS 1|        & \verb|--| \\
+                                                     & \verb|DNS 2|        & \verb|--| \\
+                                                     & \verb|DNS domain 1| & \verb|--| \\
+                                                     & \verb|DNS domain 2| & \verb|--| \\
+        \end{tabular}
+    }
+\end{tcolorbox}
+\begin{tcolorbox}[%
+        enhanced,
+        colframe = red!20!gray,
+        colback = red!10,
+        title = {\Large Proxy},
+        fonttitle = \bfseries,
+        coltitle = black,
+        breakable = true,
+        attach boxed title to top left = {xshift = 3mm, yshift = -3mm},
+        boxed title style = {colframe = red!20!gray, colback = red!10},
+        top = 4mm
+    ]
+    {\Large
+        \begin{center}
+            \begin{tabular}{p{4cm}p{10cm}l}
+                \multicolumn{1}{c}{\ttfamily{Protocol}} & \multicolumn{1}{c}{\ttfamily{URI}}                     & \multicolumn{1}{c}{\ttfamily{Port}} \\
+                \hline
+                \verb|http|                             & \multirow{2}{*}{\ttfamily{proxy.noc.kochi-tech.ac.jp}} & \multirow{2}{*}{\ttfamily{3128}}    \\
+                \verb|https|                            &                                                                                              \\
+            \end{tabular}
+        \end{center}
+    }
+\end{tcolorbox}
 \end{document}
