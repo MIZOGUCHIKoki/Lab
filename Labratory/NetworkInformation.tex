@@ -40,7 +40,7 @@
 \makeatother
 
 
-\title{\vspace{-2cm}清水研究室 ネットワーク情報}
+\title{\vspace{-2cm}SHIMIZU Lab. Network Information}
 \author{}
 \date{}
 
@@ -117,11 +117,38 @@
         top = 4mm
     ]
     {\Large
-        \begin{tabular}{wc{1cm}p{4cm}p{10cm}}
-             & \verb|DHCP|         & \verb|172.21.32.2|   \\
-             & \verb|Access Point| & \verb|172.21.32.3|   \\
-             & \verb|NAS|          & \verb|172.21.32.200|
+        \begin{tabular}{p{4cm}p{10cm}}
+            \verb|DHCP|         & \verb|172.21.32.2|   \\
+            \verb|Access Point| & \verb|172.21.32.3|   \\
+            \verb|NAS|          & \verb|172.21.32.200|
         \end{tabular}
     }
+\end{tcolorbox}
+\newpage
+\begin{tcolorbox}
+    [
+        enhanced,
+        colframe = yellow!20!gray,
+        colback = yellow!10,
+        title={\Large DHCP Server},
+        fonttitle = \bfseries,
+        coltitle = black,
+        breakable = true,
+        attach boxed title to top left = {xshift = 3mm, yshift = -3mm},
+        boxed title style = {colframe = yellow!20!gray, colback = yellow!10},
+        top = 4mm
+    ]
+    {\Large
+        \begin{tabular}{p{4cm}p{10cm}}
+            \verb|IP Address| & \verb|172.21.32.2|
+        \end{tabular}
+    }
+    \tcblower
+    {\Large
+        \begin{tabular}{p{4cm}p{10cm}}
+            \verb|IP Address| & \verb|172.21.32.2|
+        \end{tabular}
+    }
+
 \end{tcolorbox}
 \end{document}
