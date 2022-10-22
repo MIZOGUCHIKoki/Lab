@@ -15,7 +15,6 @@
 		E7F07C9528CF0FAF00EC174C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7F07C9428CF0FAF00EC174C /* Preview Assets.xcassets */; };
 		E7F07C9D28CF0FC300EC174C /* CardInfoDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E7F07C9B28CF0FC300EC174C /* CardInfoDB.xcdatamodeld */; };
 		E7F07C9F28CF132D00EC174C /* Persistent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F07C9E28CF132D00EC174C /* Persistent.swift */; };
-		E7F714B128DAEC90007DA7F5 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F714B028DAEC90007DA7F5 /* EditView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +27,6 @@
 		E7F07C9428CF0FAF00EC174C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E7F07C9C28CF0FC300EC174C /* CardInfo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CardInfo.xcdatamodel; sourceTree = "<group>"; };
 		E7F07C9E28CF132D00EC174C /* Persistent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistent.swift; sourceTree = "<group>"; };
-		E7F714B028DAEC90007DA7F5 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +62,6 @@
 				E7F07C8D28CF0FAE00EC174C /* CardInfoApp.swift */,
 				E7F07C9E28CF132D00EC174C /* Persistent.swift */,
 				E7F07C8F28CF0FAE00EC174C /* ContentView.swift */,
-				E7F714B028DAEC90007DA7F5 /* EditView.swift */,
 				E77D95C428CF8A800043CF18 /* ShowInfoView.swift */,
 				E77D95C228CF8A470043CF18 /* AddInfoView.swift */,
 				E7F07C9B28CF0FC300EC174C /* CardInfoDB.xcdatamodeld */,
@@ -156,7 +153,6 @@
 				E7F07C9F28CF132D00EC174C /* Persistent.swift in Sources */,
 				E7F07C9028CF0FAE00EC174C /* ContentView.swift in Sources */,
 				E7F07C9D28CF0FC300EC174C /* CardInfoDB.xcdatamodeld in Sources */,
-				E7F714B128DAEC90007DA7F5 /* EditView.swift in Sources */,
 				E77D95C528CF8A800043CF18 /* ShowInfoView.swift in Sources */,
 				E7F07C8E28CF0FAE00EC174C /* CardInfoApp.swift in Sources */,
 			);
