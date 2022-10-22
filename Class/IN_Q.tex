@@ -192,7 +192,40 @@
 \newcommand{\ci}{◯}
 \newcommand{\bt}{×}
 \section*{クイズ1}
-
+\subsection*{問1}
+回線交換の特徴として正しいものはどれか．
+\begin{description}
+    \item[\bt] 混雑時には遅延が発生する．
+    \item[\ci] 開始後は情報を送っていない時間も回線を専有する．
+    \item[\ci] 通信中は回線を専有する．
+    \item[\ci] 通信開始時に経路が決まる．
+\end{description}
+\subsection*{問2}
+パケット交換の特徴として正しいものはどれか．
+\begin{description}
+    \item[\bt] パケットの到着順序が保証されている．
+    \item[\ci] 混雑時に遅延が発生する．
+    \item[\ci] 回線を専有しない．
+    \item[\ci] 情報をパケットに分割して送る．
+    \item[\ci] 中継地点ではその時の状況で，適切な方へ送る．
+\end{description}
+\subsection*{テストに出る！！}
+\begin{itemize}
+    \item \textbf{7. アプリケーション層}\\
+          アプリケーション毎のサービス提供機能
+    \item \textbf{6. プレゼンテーション層}\\
+          データの表現形式
+    \item \textbf{5. セッション層}\\
+          アプリケーション同士の会話制御
+    \item \textbf{4. トランスポート層}\\
+          両端コンピュータでの処理，輻輳抑制，信頼性提供
+    \item \textbf{3. ネットワーク層}\\
+          途中の中継処理，経路制御
+    \item \textbf{2. データリンク層}\\
+          直接接続された機器間のデータフレーム転送．
+    \item \textbf{1. 物理層}\\
+          データを物理的信号に変換，ケーブルやコネクタの形状．
+\end{itemize}
 \newpage
 \section*{クイズ2}
 \subsection*{問1}
@@ -227,4 +260,33 @@
 \begin{center}
     \verb|b, a, g, n, ac, ax, be|
 \end{center}
+\newpage
+\section*{クイズ3}
+\subsection*{問1}
+IPアドレスに関する記述で正しのはどれか．
+\begin{description}
+    \item[\ci] IPv4のアドレスは32Bit．
+    \item[\bt] IPv6のアドレスは64Bit．（正しくは128Bit）
+    \item[\ci] IPv4ではネットワークアドレス部を任意のビット数に設定できる．
+    \item[\ci] ブロードキャストアドレスは，IPアドレスのホストアドレス部を全て\verb|1|にしたアドレスである．
+    \item[\ci] ネットワークアドレスは，IPアドレスのホストアドレス部を全て\verb|0|にしたアドレスである．
+\end{description}
+\subsection*{問2}
+IPv4で，IPアドレスが\verb|222.229.64.8|のホストが接続されているネットワークのブロードキャストアドレスはいくつか？
+ただし，サブネットマスクは20Bitとする．\\
+\underline{解答}\par
+サブネットマスクが20Bitなので，サブネットマスクの別表記は以下のようになる．
+\begin{center}
+    {\ttfamily 255.255.240.0}\\
+    {\ttfamily 11111111 . 11111111 . 11110000 . 00000000}
+\end{center}
+\indent つまり，ネットワークアドレス部20Bit，ホストアドレス部12Bitから構成される．\par
+この場合，ネットワークアドレス部は先頭から数えて17Bit - 24Bit目に着目して考える．その中で末尾4Bitの\(0,1\)の組み合わせは全部で\(2^4\)個あり，IPアドレス先頭から17Bit - 24Bit目の64Bitを1と数えて16個先のアドレスまでネットワークアドレスであることがわかる．\par
+従って，このIPアドレスのネットワークアドレスは{\ttfamily 222.229.64.0 - 222.229.79.0}である．\par
+その中でもブロードキャストは，ホストアドレス部が全て{\ttfamily 1}になる必要があるので，
+\begin{center}
+    {\ttfamily 222.229.79.255}
+\end{center}
+となる．
+
 \end{document}
