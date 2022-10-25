@@ -156,5 +156,33 @@ IPv4で，IPアドレスが\verb|222.229.64.8|のホストが接続されてい�
     {\ttfamily 222.229.79.255}
 \end{center}
 となる．
-
+\newpage
+\section*{クイズ4}
+\subsection*{問1}
+図に示す経路制御表を持っているあるルーターで，送信元IPアドレスが10.0.1.2で，宛先IPアドレスが10.0.3.5となっているパケットをフォワードする先のIPアドレスはどこか．\\
+\begin{tabular}[c]{cc}
+    宛先IP                 & ネクストホップ           \\
+    10.0.1.0/24          & 10.0.1.1          \\
+    10.0.2.0/24          & 10.0.2.1          \\
+    \textbf{10.0.3.0/24} & \textbf{10.0.2.2} \\
+    10.0.4.0/24          & 10.0.2.2          \\
+    192.168.1.0/24       & 10.0.2.2
+\end{tabular}
+\subsection*{問2}
+IPバージョン4のヘッダーに含まれている情報はどれか．
+\begin{description}
+    \item[\bt] 宛先MACアドレス
+    \item[\ci] 送信先IPアドレス
+    \item[\ci] 宛先IPアドレス
+    \item[\ci] パケット長
+    \item[\ci] 生存時間
+\end{description}
+\subsection*{問3}
+DHCPに関する記述として正しのはどれか．
+\begin{description}
+    \item[\ci] アドレスの貸出には制限時間が設定されている．
+    \item[\ci] 貸出期限が来た時に使用延長を申請できる．
+    \item[\bt] 貸出延長の最大回数が制限される．
+    \item[\ci] クライアントが取得する情報にルーターのIPアドレスがある．
+\end{description}
 \end{document}
