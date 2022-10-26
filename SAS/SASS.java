@@ -56,8 +56,4 @@ public class SASS {
             e.printStackTrace();
         }
     }
-
-    private static int toAscii(String toAscii) {
-        return (int) toAscii;
-    }
 }
