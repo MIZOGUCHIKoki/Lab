@@ -20,7 +20,6 @@ public class toAscii {
             buf1.append(toAscii[i]);
             // System.out.println("Plain: " + toAscii[i]);
             int j = toAscii[i] ^ key;
-
             buf2.append(j);
             // System.out.println("Encrypto: " + j);
             // j = key ^ j;
