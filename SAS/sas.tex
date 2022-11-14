@@ -1,0 +1,267 @@
+\RequirePackage{luatex85}
+\documentclass[aspectratio=43]{beamer}
+\usepackage{luatexja-fontspec}
+\usepackage{comment}
+\usepackage{calc}
+\usepackage{graphicx,color}
+\usepackage{tikz,xcolor}
+    \usetikzlibrary{calc,arrows.meta,backgrounds,shapes.geometric,shapes.misc,positioning,fit}
+
+\usetheme{Madrid} 
+\setbeamertemplate{navigation symbols}{}
+\ltjsetparameter{jacharrange={-2}} %日本語以外を欧文扱い
+\setbeamercovered{transparent}
+
+\usefonttheme{professionalfonts}
+
+
+    % \renewcommand{\thefootnote}{*\alph{footnote}}
+    \renewcommand{\figurename}{Fig\ }
+    \renewcommand{\tablename}{Tbl}
+    \newcommand{\figref}[1]{Fig\ \ref{#1}}
+    \newcommand{\tabref}[1]{Tbl\ \ref{#1}}
+
+\makeatletter
+    \renewcommand{\thefigure}{%
+    \thesection.\arabic{figure}}
+    \@addtoreset{figure}{section}
+
+    \renewcommand{\thetable}{%
+    \thesection.\arabic{table}}
+    \@addtoreset{table}{section}
+    \@addtoreset{footnote}{page}
+
+\makeatother
+\title{SAS}
+\author[K.MIZOGUCHI]{MIZOGUCHI Koki\thanks{清水研究室}}
+\date{\today}
+\institute[KUT]{Kochi University of Technology}
+\titlegraphic{\includegraphics[scale=0.3]{KUTLogo.jpg}}
+\newcommand{\showsec}{\thesection\ -\ \thesubsection ．}
+
+\begin{document}
+\begin{frame}
+    \titlepage
+\end{frame}
+\begin{comment}
+\begin{frame}{目次}
+    \tableofcontents
+\end{frame}
+\section{ワンタイムパスワード認証方式}
+\begin{frame}{\thesection ．ワンタイムパスワード認証方式}
+    \begin{block}{ワンタイムパスワード認証方式}
+        \pause
+        認証毎に，認証コードが変わる認証方式．その名の通り（one-time password）．身近な例では，ネット銀行の認証なんかに使われる．
+    \end{block}
+    \pause
+    \begin{columns}
+        \begin{column}[t]{0.49\linewidth}
+            \begin{alertblock}<1->{利点}<1->
+                \pause
+                \begin{minipage}[c][0.45\textheight]{\linewidth}
+                    ワンタイムパスワードを盗聴され，次回認証で再利用されても，認可されない．
+                \end{minipage}
+            \end{alertblock}
+        \end{column}
+        \pause
+        \begin{column}[t]{0.49\linewidth}
+            \begin{alertblock}<1->{欠点}<1->
+                \pause
+                \begin{minipage}[c][0.45\textheight]{\linewidth}
+                    \begin{itemize}[<+->]
+                        \item C\&R型パスワード方式
+                              \begin{itemize}
+                                  \item サーバからパスワードが盗取されるリスク
+                                  \item クライアントのパスワードが盗視されるリスク
+                              \end{itemize}
+                        \item S / Key 型パスワード認証方式
+                              \begin{itemize}
+                                  \item 一方向性ハッシュ関数を多く使うので，処理に時間がかかる．
+                              \end{itemize}
+                    \end{itemize}
+                \end{minipage}
+            \end{alertblock}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+\section{SASパスワード認証方式}
+\begin{frame}{\thesection ．SASパスワード認証方式}
+    \begin{block}{SAS（Simple And Secure password authentication protocol）}
+        \pause
+        サーバにパスワードを知られる事なく，かつ，一方向性ハッシュ関数の利用回数の利用が少ない，軽量かつセキュアな認証方式．（清水明宏教授考案）
+    \end{block}
+    \pause
+    \begin{exampleblock}{利用する演算，略記号}
+        \pause
+        \begin{tabular}{cl}
+            \(\oplus\) & 排他的論理和．\(A\oplus B \oplus B = A\)の性質がある \\
+            \pause
+            \(E_n(x)\) & \(x\)に\(n\)回一方向性ハッシュ関数を施す               \\
+            \pause
+            \(S\)      & パスワード（ユーザのみが知る）                         \\
+            \pause
+            \(N_i\)    & \(i\)回目に生成された乱数
+        \end{tabular}
+    \end{exampleblock}
+\end{frame}
+\subsection{SASのバージョン}
+\begin{frame}{\showsec SASのバージョン}
+    \begin{block}{SASのバージョン}
+        \begin{itemize}
+            \item<2>    SAS
+            \item<2>  SAS-2
+            \item<2>    SAS-X(1)
+            \item<2>    SAS-X(2)
+            \item<2>    SAS-L
+        \end{itemize}
+    \end{block}
+    \pause
+\end{frame}
+\end{comment}
+\subsection{認証手順}
+\begin{frame}
+    \begin{block}{}
+        \begin{center}
+            {\Huge 認証手順}
+        \end{center}
+    \end{block}
+\end{frame}
+\tikzset{PC/.style={draw,rectangle,rounded corners,text width=1.5cm,minimum height=1cm,text centered}}
+\tikzset{Data/.style={rectangle,rounded corners,text width=4cm,minimum height=1cm,text centered,fill=cyan!10}}
+\newcommand{\aia}{\(A_i=E_1(\mathrm{SID}\mid S\oplus N_i)\)}
+\newcommand{\aib}{\(A_{i+1}=E_1(\mathrm{CID}\mid S\oplus N_{i+1})\)}
+\newcommand{\aic}{\(A_{i+2}=E_1(\mathrm{SID}\mid S\oplus N_{i+2})\)}
+\begin{frame}{}
+    \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}
+            \node[Data,fill=magenta!10](make){\(N_i,N_{i+1},N_{i+2}\)を生成};
+            \node[Data,below=0.5cm of make](pw){秘密パスワード\(S\)入力};
+            \node[Data,fill=green!10,below=0.5cm of pw,draw,dashed](s){\aia};
+            \coordinate (server) at ($(make)+(7cm,0cm)$);
+            \node[Data,draw,dashed,fill=green!10]at(server|-s)(ss){\aia};
+            \draw[line width=6pt,draw=white](s.east)--(ss.west);
+            \draw[thick,-latex,red](s.east)--(ss.west)node[midway,above]{Secure};
+            \node[inner sep=0,fit={(make)(pw)(s)}](warp_client){};
+            \node[inner sep=0,above=0.5cm of warp_client](caption_client){\ttfamily Server (SID)};
+            \node[draw,rectangle,rounded corners,dotted,thick,fit={(warp_client)(caption_client)}]{};
+            \node at (ss |- caption_client)(caption_server){\ttfamily Client (CID)};
+            \node[draw,rectangle,rounded corners,dotted,thick,fit={(caption_server)(ss)}]{};
+            \node[draw,fill=white,rounded corners] at (ss.south east){\small 保存};
+        \end{tikzpicture}
+    \end{figure}
+\end{frame}
+\begin{frame}{}
+    \begin{center}
+        {\ttfamily Server}が生成するデータ
+    \end{center}
+    \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}
+            \node[Data,fill=magenta!10,text width=5cm](a1){\aia};
+            \node[Data,fill=magenta!10,text width=5cm,below=0.5cm of a1](a2){\aib};
+            \node[Data,fill=magenta!10,text width=5cm,below=0.5cm of a2](a3){\aic};
+        \end{tikzpicture}
+    \end{figure}
+\end{frame}
+\begin{frame}{}
+    \begin{center}
+        {\ttfamily Server}から{\ttfamily Client}へデータを送信
+    \end{center}
+    \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}
+            \node[Data,text width=10cm,fill=magenta!10](m1){\Huge \(E_1\Big(A_i\oplus A_{i+1}\Big)\)};
+            \node[below=3cm of m1](cli){\LARGE {\ttfamily Client}};
+            \draw[line width=2mm,-Stealth](m1)--(cli);
+        \end{tikzpicture}
+    \end{figure}
+\end{frame}
+\begin{frame}{}
+    \begin{center}
+        {\ttfamily Server}側の処理
+    \end{center}
+    \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}
+            \onslide<2->{
+                \node[Data,text width=2.3cm,fill=magenta!10](m1){\(E_2(N_{i+1}\oplus S)\)};
+                \node[right=0.5cm of m1](xor1){{\Huge\(\oplus\)}};
+                \node[Data,text width=2.3cm,fill=magenta!10,right=.5cm of xor1](m2){\(E_1(N_i\oplus S)\)};
+                \node[Data,text width=2.3cm,fill=magenta!10,below=.5cm of m1](m3){\(E_1(N_{i+1}\oplus S)\)};
+                \node[right=0.5cm of m3](xor2){{\Huge\(\oplus\)}};
+                \node[Data,text width=2.3cm,fill=magenta!10,right=.5cm of xor2](m4){\(E_1(N_i\oplus S)\)};
+                \node[fit={(m1)(m2)(m3)(m4)},dotted,draw,thick](rd){};
+                \node[below] at (rd.south){受信データ};
+                \node[Data,fill=green!10,text width=2.3cm,above=0.3cm of m2](ad){\(E_1(N_i\oplus S)\)};
+                \node[above] at (ad.north){認証情報};
+            }
+            \visible<3->{
+                \node[right=0.5cm of m4](xor4){{\Huge\(\oplus\)}};
+                \node[Data,text width=2.3cm,fill=green!10,right=.5 of xor4](ad2){\(E_1(N_i\oplus S)\)};
+                \draw[-latex,thick](ad.east)-|(ad2.north);
+            }
+            \visible<4>{
+                \node[rectangle,fill=gray,opacity=0.4,fit={(xor2)(m4)(ad2)},rounded corners,inner sep=0]{};
+            }
+        \end{tikzpicture}
+    \end{figure}
+\end{frame}
+\begin{frame}{}
+    \begin{center}
+        {\ttfamily Server}側の処理
+    \end{center}
+    \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}
+            \node[Data,fill=green!10,text width=2.3cm,above=0.5cm of xor1](ad){\(E_1(N_i\oplus S)\)};
+            \node[above] at (ad.north){認証情報};
+            \onslide<1-4>{
+                \node[Data,text width=2.3cm,fill=magenta!10](m1){\(E_2(N_{i+1}\oplus S)\)};
+                \node[right=0.5cm of m1](xor1){{\Huge\(\oplus\)}};
+            }
+            \node[Data,text width=2.3cm,fill=magenta!10,right=.5cm of xor1](m2){\(E_1(N_i\oplus S)\)};
+            \temporal<2-4>{
+                \node[Data,text width=2.3cm,fill=magenta!10,below=1cm of m1](m3){\(E_1(N_{i+1}\oplus S)\)};
+            }{
+                \node[Data,text width=2.3cm,fill=magenta!10,below=1cm of m1](m3){\underline{\(E_2(N_{i+1}\oplus S)\)}};
+            }{
+            }
+            \visible<1>{
+                \node[draw,fill=white,rounded corners] at (m3.south east){\small 保存};
+            }
+            \visible<3-4>{
+                \node at ($(m1)!0.5!(m3)$){\Huge\(\oplus\)};
+            }
+            \visible<4>{
+                \node[inner sep=0,fit={(m1)(m3)},fill=gray,opacity=0.3,rectangle,rounded corners]{};
+            }
+            \only<5>{
+                \draw[thick,stealth-stealth](m2.north)|-(ad.east)node[midway,right]{\Large 比較};
+            }
+        \end{tikzpicture}
+    \end{figure}
+\end{frame}
+\subsection{危険性}
+\begin{frame}{\showsec 危険性}
+    \begin{alertblock}{サーバ情報漏洩の危険性}
+        \pause
+        データセンターに格納してある情報が\textbf{悪意のある管理者}または，\textbf{不正侵入}によって盗まれた場合，認可されてしまう．
+        その対策として，SAS-Xがある．
+    \end{alertblock}
+    \pause
+    \begin{alertblock}{リプレイアタック}
+        \pause
+        複数回認証要求すると，認証情報\(E_1(N_i\oplus S)\)が得られる脆弱性．（排他的論理和でなく，和\(+\)の演算を加えることで，改善）
+    \end{alertblock}
+    \dotfill\\
+    その脅威とSAS-Xについては，お預け（余力があれば次回）
+\end{frame}
+\section{参考文献}
+\begin{frame}{\thesection ．参考文献}
+    \begin{itemize}
+        \item 情報セキュリティ講義資料（SAS認証方式2）[清水明宏教授]
+    \end{itemize}
+\end{frame}
+\end{document}
