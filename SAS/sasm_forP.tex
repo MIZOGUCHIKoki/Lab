@@ -5,8 +5,9 @@
 \usepackage{graphicx,color}
 \usepackage{tikz,xcolor}
     \usetikzlibrary{calc,arrows.meta,shapes,positioning,fit}
-
-\usetheme{Madrid} 
+\definecolor{darkRed}{rgb}{0.5,0,0}
+\usetheme{Madrid}
+\usecolortheme[RGB={127,0,0}]{structure}
 \setbeamertemplate{navigation symbols}{}
 \setbeamercovered{transparent}
 \renewcommand{\familydefault}{\rmdefault}
@@ -102,10 +103,10 @@
                 \draw[thick,Stealth-Stealth](rd1)|-(ead)node[midway,fill=white,draw](B){比較};
             }
             \onslide<2->{
-            \shade[shading=ball, ball color=blue] (A) circle [radius=0.2cm]node[white]{1};
+            \shade[shading=ball, ball color=darkRed] (A) circle [radius=0.2cm]node[white]{1};
             }
             \onslide<3->{
-            \shade[shading=ball, ball color=blue] ($(B.east)!0.5!(ead.west)$) circle [radius=0.2cm]node[white]{2};
+            \shade[shading=ball, ball color=darkRed] ($(B.east)!0.5!(ead.west)$) circle [radius=0.2cm]node[white]{2};
             }
         \end{tikzpicture}
     \end{figure}
@@ -138,7 +139,7 @@
             \begin{aligned}
                 \beta_{i+1}\oplus \tikz[remember picture,baseline=(ad_e.base)]{\node[fill=green!10](ad_e){$\Big(A_i\oplus A_{i+1}\Big)$}} & = \Big(A_i\oplus A_{i+2}\Big)\oplus \Big(A_i\oplus A_{i+1}\Big)                                  \\
                                                                                                                                           & = \tikz[remember picture,baseline=(nad.base)]{\node[fill=blue!10](nad){$A_{i+1}\oplus A_{i+2}$}}
-            \end{aligned}\tag*{(\tikz[baseline=(w3.base)]{\shade[shading=ball, ball color=blue] (A) circle [radius=0.2cm]node(w3)[white]{3}})}
+            \end{aligned}\tag*{(\tikz[baseline=(w3.base)]{\shade[shading=ball, ball color=darkRed] (A) circle [radius=0.2cm]node(w3)[white]{3}})}
         \end{equation}
         \begin{tikzpicture}[remember picture, overlay]
             \draw[line width=1pt,-latex](warp_a.south west)--(ad_e.north east);
