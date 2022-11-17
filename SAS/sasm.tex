@@ -4,33 +4,12 @@
 \usepackage{calc}
 \usepackage{graphicx,color}
 \usepackage{tikz,xcolor}
-    \usetikzlibrary{calc,arrows.meta,backgrounds,shapes.geometric,shapes.misc,positioning,fit}
+    \usetikzlibrary{calc,arrows.meta,shapes,positioning,fit}
 
 \usetheme{Madrid} 
 \setbeamertemplate{navigation symbols}{}
-\ltjsetparameter{jacharrange={-2}} %日本語以外を欧文扱い
 \renewcommand{\familydefault}{\rmdefault}
-
 \usefonttheme{professionalfonts}
-
-
-    % \renewcommand{\thefootnote}{*\alph{footnote}}
-    \renewcommand{\figurename}{Fig\ }
-    \renewcommand{\tablename}{Tbl}
-    \newcommand{\figref}[1]{Fig\ \ref{#1}}
-    \newcommand{\tabref}[1]{Tbl\ \ref{#1}}
-
-\makeatletter
-    \renewcommand{\thefigure}{%
-    \thesection.\arabic{figure}}
-    \@addtoreset{figure}{section}
-
-    \renewcommand{\thetable}{%
-    \thesection.\arabic{table}}
-    \@addtoreset{table}{section}
-    \@addtoreset{footnote}{page}
-
-\makeatother
 \title[SAS-M]{SAS-M{\tiny izoguchi}}
 \subtitle{Simple And Secure Mutual Authentication Protocol}
 \author[K.MIZOGUCHI]{MIZOGUCHI Koki\thanks{情報セキュリティシステム研究室}}
