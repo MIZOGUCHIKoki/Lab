@@ -1,0 +1,90 @@
+\documentclass{beamer}
+\usepackage{amsmath,amsfonts,amssymb,mathtools,ascmac,bm,fancybox,calc,multicol,physics,array}
+\usepackage{graphicx,color}
+\usepackage{tikz,listings,wrapfig,float,xcolor}
+\usepackage{url,subcaption,multirow}
+\usepackage{luatexja-fontspec}
+    \usetikzlibrary{intersections,calc,arrows.meta,backgrounds,shapes.geometric,shapes.misc,positioning,fit,graphs,arrows}
+    \setlength{\columnsep}{5mm}
+\tikzset{file/.style={rectangle,rounded corners,draw,text centered,minimum height=1cm,text width=2.5cm}}
+\tikzset{user/.style={draw,rounded corners,text centered}}
+\usetheme{Madrid} 
+%\usecolortheme[RGB={255,240,245}]{structure}
+%\setbeamercolor{palette primary}{fg=black}
+%\setbeamercolor*{palette secondary}{bg=white,fg=black}
+%\setbeamercolor*{palette tertiary}{bg=white,fg=black}
+%\setbeamercolor*{palette quaternary}{bg=white,fg=black}
+\setbeamertemplate{navigation symbols}{}
+\usefonttheme{professionalfonts}
+    \renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\renewcommand{\figurename}{Fig\ }
+\renewcommand{\tablename}{Tbl}
+\newcommand{\figref}[1]{Fig\ \ref{#1}}
+\newcommand{\tabref}[1]{Tbl\ \ref{#1}}
+\makeatletter
+\renewcommand{\thefigure}{%
+\thesection.\arabic{figure}}
+\@addtoreset{figure}{section}
+\renewcommand{\thetable}{%
+\thesection.\arabic{table}}
+\@addtoreset{table}{section}
+\@addtoreset{lstlisting}{section}
+\@addtoreset{footnote}{page}
+\makeatother
+
+
+\title{Common Key Cryptosystem}
+\subtitle{Cryptography And Authentication}
+\author[K.MIZOGUCHI]{MIZOGUCHI Koki\ \thanks{Infromation Security System Lab.}}
+\date{\today}
+\institute[KUT]{Kochi University of Technology}
+\titlegraphic{\includegraphics[scale=0.3]{KUTLogo.jpg}}
+\newcommand{\shownum}{\thesection\ -\ \thesubsection.\ }
+\newcommand{\enc}{\mathrm{Enc}}
+\newcommand{\dec}{\mathrm{Dec}}
+
+\begin{document}
+\begin{frame}
+    \titlepage
+\end{frame}
+\begin{frame}{Table of Contents}
+    \tableofcontents
+\end{frame}
+\section{Common key cryptosystem}
+\subsection{Common key cryptosystem}
+\begin{frame}
+    \frametitle{}
+    \tableofcontents[currentsection,sectionstyle=show/shaded,subsectionstyle=shaded/shaded]
+\end{frame}
+\begin{frame}{\shownum Common key cryptosystem}
+    \begin{exampleblock}{Common key cryptosystem}
+        A chipher in which the key used for encryption and decryption are the same.\\
+        Also called  secret key cryptography or symmetric key cryptography.
+    \end{exampleblock}
+    \begin{alertblock}{}
+        The encryption of a message\((m)\) (plaintext) with a secret key\((s)\) is reporesented as follows.
+        \[c=\mathrm{Enc}(s,m)\]
+        The decryption of a message with a secret key is represented as follows.
+        \[m=\mathrm{Dec}(s,c)\]
+    \end{alertblock}
+\end{frame}
+\subsection{Type of common key cryptosystem}
+\begin{frame}{\shownum Type of common key cryptosystem}
+    There are 2 types of common key cryptosystem.
+    \begin{block}{}
+        \begin{enumerate}
+            \setlength{\itemsep}{1em}
+            \item Stream chipher
+            \item Block chipher
+        \end{enumerate}
+    \end{block}
+\end{frame}
+\subsection{Stream chipher}
+\begin{frame}{\shownum Stream chipher}
+
+\end{frame}
+\subsection{Block chipher}
+\begin{frame}{\shownum Block chipher}
+
+\end{frame}
+\end{document}

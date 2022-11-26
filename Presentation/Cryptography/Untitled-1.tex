@@ -1,0 +1,169 @@
+\documentclass[dvipdfmx]{beamer}
+\usepackage{amsmath,amsfonts,amssymb,mathtools,ascmac,bm,float,comment,url,fancybox,calc}
+\usepackage[T1]{fontenc}
+\usepackage[dvipdfmx]{color}
+\usepackage{tikz,listings,jlisting}
+\usepackage{pxjahyper}
+\usepackage{xcolor}
+    \usetikzlibrary{arrows}
+    \usetikzlibrary{intersections,calc,arrows.meta,backgrounds,shapes.geometric,shapes.misc,positioning,fit,graphs}
+
+            \tikzset{
+                data/.style={draw,rounded corners,rectangle,text centered, minimum height = 1cm,text width=2cm},
+                Key/.style={fill=red!10,rounded corners,rectangle,text centered, minimum height = 1cm,text width=2cm},
+                Encryption/.style={draw,fill=blue!10,very thick,rectangle,text centered,minimum height=1cm,text width=4cm},
+                empty/.style={rectangle,rounded corners, minimum height=1cm,text width=2cm}
+            }
+
+\usetheme{Madrid} 
+%\usecolortheme[RGB={255,240,245}]{structure}
+%\setbeamercolor{palette primary}{fg=black}
+%\setbeamercolor*{palette secondary}{bg=white,fg=black}
+%\setbeamercolor*{palette tertiary}{bg=white,fg=black}
+%\setbeamercolor*{palette quaternary}{bg=white,fg=black}
+\setbeamertemplate{navigation symbols}{}
+\usefonttheme{professionalfonts}
+    \renewcommand{\thefootnote}{\arabic{footnote})}
+    \renewcommand{\figurename}{Fig\thesection-\thefigure}
+    \renewcommand{\tablename}{Tbl\thesection-\thatable}
+    \newcommand{\tabref}[1]{Tbl\thesection-\ref{#1}}
+    \newcommand{\figref}[1]{Fig\thesection-\ref{#1}}
+\makeatletter
+    \@addtoreset{figure}{section}
+    \@addtoreset{table}{section}
+\makeatother
+\title[暗号技術入門]{暗号技術入門}
+\author[K.MIZOGUCHI]{溝口洸熙\thanks{情報セキュリティシステム研究室}}
+\date{\today}
+\institute[KUT]{高知工科大学 情報学群}
+\titlegraphic{\includegraphics[scale=0.3]{KUTLogo.jpg}}
+
+
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
+\begin{frame}{目次}
+    \tableofcontents
+\end{frame}
+
+\section{共通鍵暗号方式}
+\subsection{DES(Data Encryption Standard)}
+\begin{frame}
+\frametitle{目次}
+\tableofcontents[currentsection,sectionstyle=show/shaded,subsectionstyle=show/shaded]
+\end{frame}
+\begin{frame}{DES(Data Encryption Standard)}
+    \begin{block}{DES概要}
+        DES暗号は，64bitの平文を64bitの暗号文に暗号化する\textbf{対称暗号}．\\
+        鍵のビット長は，56bit.\footnote{64bitだが，エラー検出の情報が7Bitおきに1Bitはいるので，実質的には56Bit．}
+    \end{block}
+    \begin{figure}[b]
+        \centering
+        \caption{暗号化の概要}
+        \label{fig:暗号化の概要}
+        \begin{tikzpicture}
+            \node[data](Plain){平文\\64Bit};
+            \node[Encryption,right=0.5cm of Plain](Encryption){DESによる暗号化};
+            \node[Key,below=0.5cm of Encryption](Key){鍵\\54Bit};
+            \node[data,right=0.5cm of Encryption](Cipher){暗号文\\64bit};
+             
+            \draw[-latex,thick](Plain)--(Encryption);
+            \draw[-latex,thick](Encryption)--(Cipher);
+            \draw[-latex,very thick](Key)--(Encryption);
+        \end{tikzpicture}
+        
+    \end{figure}
+\end{frame}
+\subsubsection{DESの構造}
+\begin{frame}{DESの構造}
+    \begin{block}{DESの構造}
+        DESの基本構造は，ファイステルネットワーク．
+    \end{block}
+    \begin{block}{ファイステルネットワーク}
+        \textbf{ラウンド}と呼ばれる暗号化の1ステップを何度も繰り返すようになっている．これは，多くのブロック暗号\footnote{ビット列をまとめて暗号化する暗号アルゴリズム} で採用されている．\\
+    \end{block}
+\end{frame}
+\subsubsection{DESの脆弱性}
+\begin{frame}{DESの脆弱性}
+    \begin{alertblock}{DESの脆弱性}
+        DESは，ブルート・フォース・アタック\footnote{可能な組み合わせを全て試す解読方法．}で現実的な時間内に解読されてしまう．\\
+    \end{alertblock}
+\end{frame}
+\subsection{AES(Advanced Encryption Standard)}
+\begin{frame}
+\frametitle{目次}
+\tableofcontents[currentsection,sectionstyle=show/shaded,subsectionstyle=show/shaded]
+\end{frame}
+\begin{frame}{AES(Advanced Encryption Standard)}
+    \begin{block}{AESとは何か？}
+        AES（Advanced Encryption Standard）は，これまで標準にあったDESに代わって，新しい基準となる対象暗号アルゴリズム．\\
+        企業や暗号学者からAESの候補として数多の対象暗号アルゴリズムがあり，その中で\textbf{Rijndael}という対象暗号アルゴリズムが2000年にAESとして選定された．
+    \end{block}
+\end{frame}
+\subsubsection{Rijndael}
+\begin{frame}{Rijndael}
+    \begin{block}{Rijndael}
+        Rijndaelは，DESと同じく複数のラウンドから構成されている．DESではファイステルネットワークという基本構造が使われていたが，Rijndaelでは\textbf{SPN構造}という構造が使われている．\\
+        また，Rijndaelの入力ブロックは128ビット（16バイト）．
+    \end{block}
+\end{frame}
+\subsubsection{Rijndealの暗号化}
+\begin{frame}{Rijndaelの暗号化}
+Rijndaelの暗号化は，4ステップに分かれている．
+\begin{table}[h]
+    \centering
+    \begin{tabular}{llc}
+        \hline
+        \multicolumn{1}{c}{処理} & \multicolumn{1}{c}{意味} \\
+        \hline
+        SubBytes    & バイトごとの置換 \\
+        ShiftRows   & 行シフト       \\
+        MixColumns  & 列の混合       \\
+        AddRoundKey & ラウンド鍵とのXOR \\
+        \hline
+    \end{tabular}
+    \footnotetext[1]{このスライドで適当に定義した．}
+\end{table}
+\end{frame}
+\begin{frame}
+    \begin{figure}[h]
+        \centering
+        \caption{Rijndaelの暗号化}
+        \label{fig:RijndaelCryptography}
+        \begin{tikzpicture}
+            % \tikzset{SR/.style={draw,fill=gray!10,rounded corners,text centered}};
+            \node[draw,rectangle,text width=10cm,text centered](input){平文入力128ビット};
+            \node[below=0.5cm of input,fill=red!10,rectangle,rounded corners,text centered,text width=10cm,minimum height=0.8cm](SB){SubBytes};
+            \node[below=0.5cm of SB,fill=blue!10,rectangle,rounded corners,text centered,text width=10cm,minimum height=0.8cm](SR){ShiftRows};
+            \node[below=0.5cm of SR,fill=green!10,rectangle,rounded corners,text centered,text width=10cm,minimum height=0.8cm](MC){MixColumns};
+            \node[below=0.5cm of MC,fill=gray!10,rectangle,rounded corners,text centered,text width=10cm,minimum height=0.8cm](AR){AddRoundKey};
+            \node[below=0.5cm of AR,draw,rectangle,text width=10cm,text centered](output){暗号文出力128ビット};
+            \draw[-latex,very thick](input)--(SB);
+            \draw[-latex,very thick](SB)--(SR);
+            \draw[-latex,very thick](SR)--(MC);
+            \draw[-latex,very thick](MC)--(AR);
+            \draw[-latex,very thick](AR)--(output);
+        \end{tikzpicture}
+    \end{figure}
+\end{frame}
+\subsubsection{Rijndaelの復号}
+\begin{frame}{Rijndaelの復号}
+    \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}
+            \node[draw,rectangle,text width=10cm,text centered](input){平文出力128ビット};
+            \node[below=0.5cm of input,fill=red!10,rectangle,rounded corners,text centered,text width=10cm,minimum height=0.8cm](SB){SubBytes};
+            \node[below=0.5cm of SB,fill=blue!10,rectangle,rounded corners,text centered,text width=10cm,minimum height=0.8cm](SR){ShiftRows};
+            \node[below=0.5cm of SR,fill=green!10,rectangle,rounded corners,text centered,text width=10cm,minimum height=0.8cm](MC){MixColumns};
+            \node[below=0.5cm of MC,fill=gray!10,rectangle,rounded corners,text centered,text width=10cm,minimum height=0.8cm](AR){AddRoundKey};
+            \node[below=0.5cm of AR,draw,rectangle,text width=10cm,text centered](output){暗号文入力128ビット};
+            \draw[-latex,very thick](SB)--(input);
+            \draw[-latex,very thick](SR)--(SB);
+            \draw[-latex,very thick](MC)--(SR);
+            \draw[-latex,very thick](AR)--(MC);
+            \draw[-latex,very thick](output)--(AR);
+        \end{tikzpicture}
+    \end{figure}
+\end{frame}
+\end{document}
